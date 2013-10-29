@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @idea.title %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @idea.desc %>
+</p>
+
+<p>
+  <b>Featured:</b>
+  <%= @idea.featured %>
+</p>
+
+<p>
+  <b>Progress:</b>
+  <%= @idea.progress %>
+</p>
+
+
+<%= link_to 'Edit', edit_idea_path(@idea) %> |
+<%= link_to 'Back', ideas_path %>
