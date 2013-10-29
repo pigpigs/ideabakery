@@ -1,5 +1,30 @@
 Ideabakery2::Application.routes.draw do
-  resources :ideas
+
+  
+
+
+  
+
+
+
+
+  devise_for :users
+
+  devise_scope :user do
+    get "login", :to => "devise/sessions#new"
+    get "logout", :to => "devise/sessions#destroy"
+    get "signup", :to => "devise/registrations#new"
+    get "settings", :to => "devise/registrations#edit"
+  end
+
+  get "users/index"
+
+  resources :ideas do
+    resources :pictures
+    resources :updates
+  end
+
+  resources :users
 
 
   # The priority is based upon order of creation:
@@ -51,7 +76,7 @@ Ideabakery2::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'ideas#index'
+  root :to => 'static#index'
 
   # See how all your routes lay out with "rake routes"
 

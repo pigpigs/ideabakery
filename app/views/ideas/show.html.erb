@@ -20,6 +20,11 @@
   <%= @idea.progress %>
 </p>
 
+<% @idea.pictures.each do |picture| %>
+	<%= filepicker_image_tag picture.filepicker_url, w: 436, fit: 'clip' %>
+
+<% end %>
+
 
 <%= link_to 'Edit', edit_idea_path(@idea) %> |
 <%= link_to 'Back', ideas_path %>

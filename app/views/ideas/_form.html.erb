@@ -1,4 +1,8 @@
-<%= form_for(@idea) do |f| %>
+
+
+
+<%= simple_form_for @idea, html: {multipart: true} do |f| %>
+
   <% if @idea.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
@@ -11,23 +15,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_area :desc %>
-  </div>
-  <div class="field">
-    <%= f.label :featured %><br />
-    <%= f.check_box :featured %>
-  </div>
-  <div class="field">
-    <%= f.label :progress %><br />
-    <%= f.number_field :progress %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+  <%= f.input :title  %>
+  <%= f.input :desc %>
+  <%= f.input :progress, collection: 1..5 %>
+  <%= f.input :tag_list %> 
+  <%= f.filepicker_field :pictures, dragdrop: true, store_location: "S3", name: "pictures[filepicker_url][]", multiple: "true", mimetypes: "image/gif,image/jpeg,image/pjpeg,image/png,image/svg+xml,image/tiff" %>
+  <%= f.button :submit %>
 <% end %>
