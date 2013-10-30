@@ -7,6 +7,7 @@
     <th>Description</th>
     <th>Featured</th>
     <th>Progress</th>
+    <th>Pictures</th>
     <th></th>
     <th></th>
     <th></th>
@@ -18,6 +19,7 @@
     <td><%= idea.desc %></td>
     <td><%= idea.featured %></td>
     <td><%= idea.progress %></td>
+    <td><%= idea.pictures.count %></td>
     <td><%= link_to 'Show', idea %></td>
     <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
     <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>

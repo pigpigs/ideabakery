@@ -25,7 +25,6 @@ class IdeasController < ApplicationController
   # GET /ideas/new.json
   def new
     @idea = Idea.new
-    @idea.pictures.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,8 +41,6 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(params[:idea])
-    
-
 
     respond_to do |format|
       if @idea.save
@@ -89,7 +86,7 @@ class IdeasController < ApplicationController
 
   def create_pictures
     params[:pictures][:filepicker_url].each do |filepicker_url|
-      if filepicker_url.present?
+      if ((filepicker_url.present?) && (filepicker_url != "[]"))
         filepicker_url_splitted = filepicker_url.split(",") #If creator do multi upload, then the filepicker are like this :["https://www.filepicker.io/api/file/g238Ev8xRl2I9KogOHix,https://www.filepicker.io/api/file/0kNeqcS2TZWbRDIU5yL6,https://www.filepicker.io/api/file/eDlmuXCTxGV1L7jRIJsA"] . We split it to make differents creation_galleries
         filepicker_url_splitted.each do |filepicker_url_splitted|
           @idea.pictures.create(:filepicker_url => filepicker_url_splitted)
