@@ -23,7 +23,45 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'therubyracer', :platforms => :ruby
+
+#for windows users
+#gem 'therubyracer', :platforms => :ruby
+
+gem 'devise'
+gem 'formtastic'
+gem 'thin'
+
+#https://github.com/Ink/filepicker-rails
+gem 'filepicker-rails'
+
+#https://github.com/ryanto/acts_as_votable
+gem 'acts_as_votable'
+
+#https://github.com/mbleigh/acts-as-taggable-on
+gem 'acts-as-taggable-on'
+
+gem 'simple_form'
+
+group :development, :test do
+  gem "rspec-rails", "~> 2.0"
+  gem "capybara"
+  gem "factory_girl_rails", "~> 4.0"
+end
+
+group :development do
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'guard-rspec'
+  gem 'pry-rails'
+  gem 'quiet_assets'
+
+  gem 'rb-fchange', :require => false
+  gem 'rb-fsevent', '~> 0.9.2'
+  gem 'rb-inotify', :require => false
+  gem 'rb-readline', :require => false
+end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
