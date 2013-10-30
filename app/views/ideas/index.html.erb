@@ -1,7 +1,32 @@
+<!DOCTYPE html>
+<h1>Listing ideas</h1>
 
- <h1>Listing ideas</h1>
- 
+<%= stylesheet_link_tag "ideas.css" %>
+ <link href="dist/css/ideas.css" rel="stylesheet">
+<table id="ideas" class="table table-striped">
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Featured</th>
+    <th>Progress</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
- <table id="ideas" class="table table-striped">
-   <tr>
-     <th>Title</th>
+<% @ideas.each do |idea| %>
+  <tr>
+    <td><%= idea.title %></td>
+    <td><%= idea.desc %></td>
+    <td><%= idea.featured %></td>
+    <td><%= idea.progress %></td>
+    <td><%= link_to 'Show', idea %></td>
+    <td><%= link_to 'Edit', edit_idea_path(idea) %></td>
+    <td><%= link_to 'Destroy', idea, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Idea', new_idea_path %>
