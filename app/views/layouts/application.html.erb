@@ -26,15 +26,16 @@
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
       <li><a href="#"> &nbsp; &nbsp; &nbsp;About &nbsp; &nbsp; &nbsp;</a></li>
-      <li><a href=".."> &nbsp; &nbsp; &nbsp;Home &nbsp; &nbsp; &nbsp; </a></li>
-   
-      <li><a href="ideas"> &nbsp; &nbsp; &nbsp;Ideas &nbsp; &nbsp; &nbsp;</a></li>
 
+      <li><%= link_to "Home", {action: "index", :controller=>'static'} %></li>
+<li>&nbsp;&nbsp;&nbsp;</li>   <li>&nbsp;&nbsp;&nbsp;</li> <!-- padding-->
+      <li><%= link_to "Ideas", ideas_path %></li>
+<li>&nbsp;&nbsp;&nbsp;</li>
       <li><a href="projects"> &nbsp; &nbsp; &nbsp;Projects &nbsp; &nbsp; &nbsp;</a></li>
 <!-- possibly use li with &nbsp; for padding-->
       
       <li><a href="Help"> &nbsp; &nbsp; &nbsp;Help &nbsp; &nbsp; &nbsp;</a></li>      
-      <li><a href="login"> &nbsp; &nbsp; &nbsp;Login</a></li>
+      <li><%= link_to "Login", login_path %></li>
           </ul>
       <div class="col-sm-3 col-md-3 pull-right">
         <form class="navbar-form" role="search">
